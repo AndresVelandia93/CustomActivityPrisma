@@ -30,19 +30,10 @@ define(function (require) {
       var columns = schema.map(function (column) {
           return column.key.split('.').pop();
       });
-      $('#ToColumn').empty();
-      $('#variableDropdown').empty();
-      $('#variableDropdownTitle').empty();
-      $('#variableDropdownMessage').empty();
-
-      
+      $('#SelectContacto').empty();
 
       columns.forEach(function (column) {
-          $('#ToColumn').append(new Option(column, column));
-          $('#variableDropdown').append(new Option(column, column));
-          $('#variableDropdownTitle').append(new Option(column, column));
-          $('#variableDropdownMessage').append(new Option(column, column));
-
+          $('#SelectContacto').append(new Option(column, column));
       });
   });
 
@@ -61,11 +52,7 @@ define(function (require) {
 
 
   function save() {
-      var ToColumn = $('#ToColumn').val();
-      var TitleColumn = $('#TitleColumn').val();
-      var MessageColumn = $('#MessageColumn').val();
-      var idlink1 = $('#ButtonLink').val();
-      var idnome1 = $('#ButtonText').val();
+      var ContactID = $('#SelectContacto').val();
      
       var schemaMap = {};
 
@@ -85,7 +72,7 @@ define(function (require) {
  
       var inArguments = [];
 
-      inArguments.push({ "ToColumn": schemaMap[ToColumn] });
+      inArguments.push({ "ContactId": schemaMap[ContactID] });
       inArguments.push({ "TitleColumn": TitleColumn });
       inArguments.push({ "MessageColumn": MessageColumn });
       inArguments.push({ "idlink1": idlink1 });
