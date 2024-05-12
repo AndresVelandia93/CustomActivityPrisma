@@ -1,0 +1,82 @@
+{
+  "workflowApiVersion": "1.1",
+  "metaData": {
+    "icon": "img/MZn2jtJv_400x400.png",
+    "category": "message"
+  },
+  "type": "REST",
+  "lang": {
+    "en-US": {
+      "name": "Pushy  Prisma",
+      "description": "Send Push messages via Prisma API."
+    }
+  },
+  "arguments": {
+    "execute": {
+      "inArguments": [
+        {
+          "ToColumn": "{{Interaction.ToColumn}}",
+          "TitleColumn": "{{Interaction.TitleColumn}}"
+        }
+      ],
+      "outArguments": [],
+      "url": "https://custom-prisma-0e38484dae4b.herokuapp.com/execute",
+      "verb": "POST",
+      "format": "json",
+      "useJwt": true
+    }
+  },
+  "configurationArguments": {
+    "applicationExtensionKey": "d1d604d0-7164-4f4f-a164-d944fbc2a8f7",
+    "save": {
+      "url": "https://custom-prisma-0e38484dae4b.herokuapp.com/save",
+      "verb": "POST",
+      "useJwt": true
+    },
+    "publish": {
+      "url": "https://custom-prisma-0e38484dae4b.herokuapp.com/publish",
+      "verb": "POST",
+      "useJwt": true
+    },
+    "validate": {
+      "url": "https://custom-prisma-0e38484dae4b.herokuapp.com/validate",
+      "verb": "POST",
+      "useJwt": true
+    },
+    "stop": {
+      "url": "https://custom-prisma-0e38484dae4b.herokuapp.com/stop",
+      "verb": "POST",
+      "useJwt": true
+    }
+  },
+  "userInterfaces": {
+    "configModal": {
+      "height": 1000,
+      "width": 1200,
+      "fullscreen": false
+    }
+  },
+  "schema": {
+    "arguments": {
+      "execute": {
+        "inArguments": [
+          {
+            "TitleColumn": {
+              "dataType": "Text",
+              "isNullable": false,
+              "direction": "In"
+            }
+          },
+          {
+            "ToColumn": {
+              "dataType": "Text",
+              "isNullable": false,
+              "direction": "In"
+            }
+          }
+        ],
+        "outArguments": []
+      }
+    }
+  }
+}
