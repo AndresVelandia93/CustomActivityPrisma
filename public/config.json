@@ -13,38 +13,33 @@
   },
   "arguments": {
     "execute": {
-      "inArguments": [
-        {
-          "ToColumn": "{{Interaction.ToColumn}}",
-          "TitleColumn": "{{Interaction.TitleColumn}}"
-        }
-      ],
+      "inArguments": [],
       "outArguments": [],
-      "url": "https://custom-prisma-0e38484dae4b.herokuapp.com/execute",
+      "url": "https://customactivityprisma.onrender.com/execute",
       "verb": "POST",
       "format": "json",
       "useJwt": true
     }
   },
   "configurationArguments": {
-    "applicationExtensionKey": "d1d604d0-7164-4f4f-a164-d944fbc2a8f7",
+    "applicationExtensionKey": "f55e203a-4444-4a4b-8c21-2b67471fff26",
     "save": {
-      "url": "https://custom-prisma-0e38484dae4b.herokuapp.com/save",
+      "url": "https://customactivityprisma.onrender.com/save",
       "verb": "POST",
       "useJwt": true
     },
     "publish": {
-      "url": "https://custom-prisma-0e38484dae4b.herokuapp.com/publish",
+      "url": "https://customactivityprisma.onrender.com/publish",
       "verb": "POST",
       "useJwt": true
     },
     "validate": {
-      "url": "https://custom-prisma-0e38484dae4b.herokuapp.com/validate",
+      "url": "https://customactivityprisma.onrender.com/validate",
       "verb": "POST",
       "useJwt": true
     },
     "stop": {
-      "url": "https://custom-prisma-0e38484dae4b.herokuapp.com/stop",
+      "url": "https://customactivityprisma.onrender.com/stop",
       "verb": "POST",
       "useJwt": true
     }
