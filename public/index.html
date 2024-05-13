@@ -10,6 +10,7 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script type="text/javascript" src="js/jquery.min.js"></script>
   <script type="text/javascript" src="js/require.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/alasql@0.6"></script>
   <script>
     requirejs.config({
       paths: {
@@ -71,7 +72,7 @@
                   <!-- ID_CAMPANA -->
                   <div id="To" class="mb-3">
                     <label for="IdCampana" class="form-label">Id Campana:</label>
-                    <input class="form-control" id="IdCampana" type="text" name="IdCampana" value="">
+                    <select id="IdCampana" name="IdCampana" class="form-select custom-select"></select>
                   </div>
                   <!-- CALL_TO_ACTION -->
                   <div id="To" class="mb-3">
@@ -137,5 +138,89 @@
       </div>
     </div>
   </div>
+  <script>
+    var dataInicial; 
+    (function($){
+        /*function CalculateDependentSelect(select, value){
+            var filter = "", optionSelect = "";
+            if(select == "Tenant"){
+                if (value != '0'){
+                    filter = 'WHERE Tenant IN ("' + value + '")';
+                }
+            }else if(select == "Pais"){
+                var valTenant = $("#select_Tenant").val();
+                if (valTenant == '0' && value == '0'){
+                    filter = '';
+                }else{
+                    if (valTenant == '0' && value != '0'){
+                        filter = 'WHERE Pais IN ("' + value + '")';
+                    }else if (valTenant != '0' && value == '0'){
+                        filter = 'WHERE Tenant IN ("' + valTenant + '")';
+                    }else{
+                        filter = 'WHERE Pais IN ("' + value + '") AND Tenant IN ("' + valTenant + '")';
+                    }
+                }
+            }
+            var data_filter = alasql('SELECT * FROM ? ' + filter,[dataInicial]);
+            var BUArray = alasql('SELECT Distinct ClientName FROM ?',[data_filter]);
+            var PaisArray = alasql('SELECT Distinct Pais FROM ?',[data_filter]);
+
+            if(select == "Tenant"){
+                $('#select_Pais').empty();
+                $('#select_Negocio').empty();
+
+                $('#select_Pais').append('<option value="0">Selecciona País</option>');
+                $('#select_Negocio').append('<option value="0">Selecciona Negocio</option>');
+
+                for(key in PaisArray){
+                    optionSelect = '<option value="' + PaisArray[key].Pais + '">' + PaisArray[key].Pais + '</option>'
+                    $('#select_Pais').append(optionSelect);
+                };
+                for(key in BUArray){
+                    optionSelect = '<option value="' + BUArray[key].ClientName + '">' + BUArray[key].ClientName + '</option>'
+                    $('#select_Negocio').append(optionSelect);
+                };
+
+            }else if(select == "Pais"){
+                $('#select_Negocio').empty();
+                $('#select_Negocio').append('<option value="0">Selecciona Negocio</option>');
+
+                for(key in BUArray){
+                    optionSelect = '<option value="' + BUArray[key].ClientName + '">' + BUArray[key].ClientName + '</option>'
+                    $('#select_Negocio').append(optionSelect);
+                };
+            }
+        }*/
+        function LoadSelectCampania(data){
+            var CampaniaArray = alasql('SELECT ID_CAMPANA FROM ?',[data]);
+            var optionSelect = "";
+
+            $('#IdCampana').empty();
+
+            $('#IdCampana').append('<option disabled selected>Selecciona una opción</option>');
+
+            for(key in TenantArray){
+                optionSelect = '<option value="' + CampaniaArray[key].ID_CAMPANA + '">' + CampaniaArray[key].ID_CAMPANA + '</option>'
+                $('#IdCampana').append(optionSelect);
+            };
+        }
+        function InitData(data){
+            dataInicial=data;
+        }
+        $(document).ready(function () {
+            //Inicializar Datos
+            var dataInicial;
+
+            var URLJsonInit = "https://cloud.mensajes.payway.com.ar/JSON_DatosCampanias";
+            $.getJSON(URLJsonInit, function (data){
+                LoadSelectCampania(data);
+                InitData(data);
+            });
+            $("#select_Tenant").change(function(){
+                CalculateDependentSelect("Tenant", $("#select_Tenant").val());
+            });
+        });
+    })(jQuery);      
+  </script>
 </body>
 </html>
