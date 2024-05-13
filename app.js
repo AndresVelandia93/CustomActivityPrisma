@@ -4,6 +4,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const axios = require('axios');
 const decodeJwt = require('./JwtDecoder');
+const cors = require('cors');
 
 const apikey = 'e251cb9930b6f010cbb6122c5dd755a54409018125050dd8aa1b09737d99983f';
 const pushApiUrl = 'https://api.pushy.me/push?api_key=' + apikey;
@@ -11,6 +12,7 @@ const secret = 'yo-pwyWMMkM77H_Ms-3UCJxNnybmGOeNFjdovkl6bodESDtjcZwhlAWes3yGd_JE
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.raw({ type: 'application/jwt' }));
+app.use(cors());
 
 app.post('/save', (req, res) => {
     console.log('Save route');
