@@ -4,7 +4,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const axios = require('axios');
 const decodeJwt = require('./JwtDecoder');
-const cors = require('cors');
+const cors = require('cors')
 
 const apikey = 'e251cb9930b6f010cbb6122c5dd755a54409018125050dd8aa1b09737d99983f';
 const pushApiUrl = 'https://api.pushy.me/push?api_key=' + apikey;
