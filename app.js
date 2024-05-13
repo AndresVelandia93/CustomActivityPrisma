@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const axios = require('axios');
 const decodeJwt = require('./JwtDecoder');
 const cors = require('cors');
+const alasql = require('alasql');
 
 const apikey = 'e251cb9930b6f010cbb6122c5dd755a54409018125050dd8aa1b09737d99983f';
 const pushApiUrl = 'https://api.pushy.me/push?api_key=' + apikey;
@@ -59,43 +60,38 @@ app.post('/execute', async (req, res) => {
         res.status(400).send('No inArguments provided');
         return;
     }
-    const ToColumn = inArguments.find(arg => 'ToColumn' in arg)?.ToColumn;
-    const TitleColumn = inArguments.find(arg => 'TitleColumn' in arg)?.TitleColumn;
-    const MessageColumn = inArguments.find(arg => 'MessageColumn' in arg)?.MessageColumn;
-    const TimeToLiveColumn = inArguments.find(arg => 'TimeToLiveColumn' in arg)?.TimeToLiveColumn;
-    const idlink1 = inArguments.find(arg => 'idlink1' in arg)?.idlink1;
-    const idnome1 = inArguments.find(arg => 'idnome1' in arg)?.idnome1;
-    const idlink2 = "smartlapos://mobile.smartlapos.help/question/9";
-    const idnome2 = "Ver Ayuda";
-
-    console.log('ToColumn', ToColumn);
-    console.log('TitleColumn', TitleColumn);
-    console.log('MessageColumn', MessageColumn);
-    console.log('TimeToLiveColumn', TimeToLiveColumn);
-    console.log('idlink1', idlink1);
-    console.log('idnome1', idnome1);
-    console.log('idlink2', idlink2);
-    console.log('idnome2', idnome2);
+    const SelectContacto = inArguments.find(arg => 'SelectContacto' in arg)?.SelectContacto;
+    const IdCampana = inArguments.find(arg => 'IdCampana' in arg)?.IdCampana;
+    const CallToAction = inArguments.find(arg => 'CallToAction' in arg)?.CallToAction;
+    const TimeToLive = inArguments.find(arg => 'TimeToLive' in arg)?.TimeToLive;
+    const Categoria = inArguments.find(arg => 'Categoria' in arg)?.Categoria;
+    const Title = inArguments.find(arg => 'Title' in arg)?.Title;
+    const ShortDescription = inArguments.find(arg => 'ShortDescription' in arg)?.ShortDescription;
+    const LongDescription = inArguments.find(arg => 'LongDescription' in arg)?.LongDescription;
+    const CallToActionLabel = inArguments.find(arg => 'CallToActionLabel' in arg)?.CallToActionLabel;
+    const SecondaryCallToAction = inArguments.find(arg => 'SecondaryCallToAction' in arg)?.SecondaryCallToAction;
+    const Nombre = inArguments.find(arg => 'Nombre' in arg)?.Nombre;
+    const Modulo = inArguments.find(arg => 'Modulo' in arg)?.Modulo;
 
     try {
-        console.log('Enviando mensagem de push para a API do Pushy...');
+        console.log('Enviando mensage de push para a API de Pushy...');
         const response = await axios.post(pushApiUrl, 
          {
-             to: ToColumn,
+             to: SelectContacto,
              data: {
                 notification: {
-                    time_to_live : 2592000,
-                    timestamp: 1647284262000,
-                    category: "services_center",
-                    title: TitleColumn,
-                    short_description: MessageColumn,
+                    time_to_live : TimeToLive,
+                    timestamp: TimeToLive,
+                    category: Categoria,
+                    title: Title,
+                    short_description: ShortDescription,
                     call_to_action: {
-                        url: idlink1,
-                        label: idnome1
+                        url: CallToAction,
+                        label: CallToActionLabel
                     },
                     secondary_call_to_action: {
-                        url: idlink2,
-                        label: idnome2
+                        url: SecondaryCallToAction,
+                        label: CallToActionLabel
                     }
                 }
             }           
@@ -109,17 +105,18 @@ app.post('/execute', async (req, res) => {
         console.log('Resposta do envio:', JSON.stringify(response.data));
 
         if (response.status >= 200 && response.status < 300) {
-            res.status(200).send('Mensagem de push enviada com sucesso');
+            res.status(200).send('Mensage de push enviado con Exito');
         } else {
             res.status(response.status).send(response.statusText);
         }
     } catch (error) {
-        console.error('Erro ao enviar mensagem de push:', error.message);
-        res.status(500).send('Erro ao enviar mensagem de push');
+        console.error('Error al enviar mensage de push:', error.message);
+        res.status(500).send('Error al enviar mensage de push');
     }
 });
 
 app.get('/', (req, res) => {
+    res.set('Access-Control-Allow-Origin', 'https://cloud.mensajes.payway.com.ar');
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 

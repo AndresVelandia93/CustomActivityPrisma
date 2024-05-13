@@ -38,18 +38,13 @@ define(function (require) {
   });
 
   connection.on('clickedNext', function () {
-      
-          save();
-     
+        save();
   });
 
   connection.on('clickedBack', function () {
       connection.trigger('prevStep');
      
   });
-
-  
-
 
   function save() {
       var ContactID = $('#SelectContacto').val();
@@ -73,10 +68,17 @@ define(function (require) {
       var inArguments = [];
 
       inArguments.push({ "ContactId": schemaMap[ContactID] });
-      inArguments.push({ "TitleColumn": TitleColumn });
-      inArguments.push({ "MessageColumn": MessageColumn });
-      inArguments.push({ "idlink1": idlink1 });
-      inArguments.push({ "idnome1": idnome1 });
+      inArguments.push({ "IdCampana": IdCampana });
+      inArguments.push({ "CallToAction": CallToAction });
+      inArguments.push({ "TimeToLive": TimeToLive });
+      inArguments.push({ "Categoria": Categoria });
+      inArguments.push({ "Title": Title });
+      inArguments.push({ "ShortDescription": ShortDescription });
+      inArguments.push({ "LongDescription": LongDescription });
+      inArguments.push({ "CallToActionLabel": CallToActionLabel });
+      inArguments.push({ "SecondaryCallToAction": SecondaryCallToAction });
+      inArguments.push({ "Nombre": Nombre });
+      inArguments.push({ "Modulo": Modulo });
       
 
       // Atualiza o payload

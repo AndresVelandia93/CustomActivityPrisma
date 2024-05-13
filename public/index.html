@@ -18,7 +18,6 @@
     });
     requirejs(['js/customActivity'], function (customActivity) { });
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/alasql@0.6"></script>
   <style>
     body {
       min-height: 100vh;
@@ -64,7 +63,7 @@
                   <label for="LabelIdContacto" class="col-sm-2 col-form-label">Id Contacto:</label>
                   <div id="LabelIdContacto" class="mb-3 row">
                     <div class="col-sm-10 d-flex">
-                      <select id="SelectContacto" class="form-select custom-select">
+                      <select id="SelectContacto" name="SelectContacto" class="form-select custom-select">
                         <option disabled selected>Seleccione una opción</option>
                       </select>
                     </div>
@@ -138,9 +137,10 @@
       </div>
     </div>
   </div>
-  <script>
+  
+  <script>/*
     var dataInicial; 
-    (function($){
+    (function($){*/
         /*function CalculateDependentSelect(select, value){
             var filter = "", optionSelect = "";
             if(select == "Tenant"){
@@ -190,7 +190,7 @@
                     $('#select_Negocio').append(optionSelect);
                 };
             }
-        }*/
+        }*//*
         function LoadSelectCampania(data){
             var CampaniaArray = alasql('SELECT ID_CAMPANA FROM ?',[data]);
             var optionSelect = "";
@@ -220,7 +220,8 @@
                 CalculateDependentSelect("Tenant", $("#select_Tenant").val());
             });
         });
-    })(jQuery);      
+    })(jQuery);*/
   </script>
 </body>
 </html>
+()
