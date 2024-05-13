@@ -60,8 +60,8 @@ define(function (require) {
       // Replace all placeholders in the message
       for (var key in schemaMap) {
           if (schemaMap.hasOwnProperty(key)) {
-              MessageColumn = MessageColumn.replace(new RegExp('{{' + key + '}}', 'g'), schemaMap[key]);
-              TitleColumn = TitleColumn.replace(new RegExp('{{' + key + '}}', 'g'), schemaMap[key]);
+              LongDescription = LongDescription.replace(new RegExp('{{' + key + '}}', 'g'), schemaMap[key]);
+              Title = Title.replace(new RegExp('{{' + key + '}}', 'g'), schemaMap[key]);
           }
       }
  
