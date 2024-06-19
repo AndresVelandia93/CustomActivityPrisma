@@ -15,7 +15,7 @@
     "execute": {
       "inArguments": [],
       "outArguments": [],
-      "url": "https://customactivityprisma.onrender.com/execute",
+      "url": "https://customactivityprisma-1.onrender.com/execute",
       "verb": "POST",
       "format": "json",
       "useJwt": true
@@ -24,22 +24,22 @@
   "configurationArguments": {
     "applicationExtensionKey": "f55e203a-4444-4a4b-8c21-2b67471fff26",
     "save": {
-      "url": "https://customactivityprisma.onrender.com/save",
+      "url": "https://customactivityprisma-1.onrender.com/save",
       "verb": "POST",
       "useJwt": true
     },
     "publish": {
-      "url": "https://customactivityprisma.onrender.com/publish",
+      "url": "https://customactivityprisma-1.onrender.com/publish",
       "verb": "POST",
       "useJwt": true
     },
     "validate": {
-      "url": "https://customactivityprisma.onrender.com/validate",
+      "url": "https://customactivityprisma-1.onrender.com/validate",
       "verb": "POST",
       "useJwt": true
     },
     "stop": {
-      "url": "https://customactivityprisma.onrender.com/stop",
+      "url": "https://customactivityprisma-1.onrender.com/stop",
       "verb": "POST",
       "useJwt": true
     }
