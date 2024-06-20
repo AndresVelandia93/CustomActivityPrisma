@@ -48,7 +48,9 @@ define(function (require) {
 
   function save() {
       var ContactID = $('#SelectContacto').val();
-     
+      var LongDescription = $('#LongDescription').val();
+      var Title = $('#Title').val();
+    
       var schemaMap = {};
 
       schema.forEach(function (column) {
