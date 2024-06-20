@@ -19,35 +19,21 @@
     requirejs(['js/customActivity'], function (customActivity) { });
   </script>
   <style>
-    body {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-    .container {
-      flex: 1;
-    }
-    .botao-inputs {
-      margin-bottom: 20px;
-    }
-    .close-btn {
-      font-size: 30px;
-      font-weight: bold;
-      color: #c0c0c0;
-      cursor: pointer;
-    }
-    .close-btn:focus,
-    .close-btn:hover {
-      opacity: 1;
-      color: #000;
-    }
-    .custom-select {
-      width: 50px;
-      margin-left: 10px;
-    }
-  </style>
+        .header {
+         color: #36A0FF;
+         font-size: 27px;
+         padding: 10px;
+         }
+        .bigicon {
+         font-size: 35px;
+         color: #36A0FF;
+         }
+        .form-control::placeholder {
+          color:#BDBDBD;
+        }
+</style>
 </head>
-<body class="bg-light">
+<body>
   <div class="container d-flex justify-content-center align-items-center">
     <div class="row w-100">
       <div class="col-md-10 offset-md-2">
@@ -60,13 +46,11 @@
               <div class="col-12">
                 <form action="">
                   <!-- Contacto -->
-                  <label for="LabelIdContacto" class="col-sm-2 col-form-label">Id Contacto:</label>
-                  <div id="LabelIdContacto" class="mb-3 row">
-                    <div class="col-sm-10 d-flex">
-                      <select id="SelectContacto" name="SelectContacto" class="form-select custom-select">
-                        <option disabled selected>Seleccione una opción</option>
-                      </select>
-                    </div>
+                  <div class="form-group">
+                        <label for="LabelIdContacto" class="form-label">Id de Cuenta:</label>
+                        <select class="form-select" id="SelectContacto" name="SelectContacto" >
+                           <option disabled selected>Seleccione una opción</option>
+                        </select>
                   </div>
                   <!-- ID_CAMPANA -->
                   <div id="To" class="mb-3">
