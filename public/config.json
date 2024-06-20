@@ -22,7 +22,7 @@
     }
   },
   "configurationArguments": {
-    "applicationExtensionKey": "f55e203a-4444-4a4b-8c21-2b67471fff26",
+    "applicationExtensionKey": "1759c7f4-8775-4e19-a294-5a2bd66fb2c4",
     "save": {
       "url": "https://customactivityprisma-1.onrender.com/save",
       "verb": "POST",
