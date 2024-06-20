@@ -4,22 +4,13 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const axios = require('axios');
 const decodeJwt = require('./JwtDecoder');
-const cors = require('cors');
-const alasql = require('alasql');
 
 const apikey = 'e251cb9930b6f010cbb6122c5dd755a54409018125050dd8aa1b09737d99983f';
 const pushApiUrl = 'https://api.pushy.me/push?api_key=' + apikey;
 const secret = 'yo-pwyWMMkM77H_Ms-3UCJxNnybmGOeNFjdovkl6bodESDtjcZwhlAWes3yGd_JEnL1Wg7WJ0C3UhNjCixHUjbafTRlGpcUdu_zsUxAERafyjnU0UUGhSM5DXYdOggyIRoYZaBTeTtcdMWqChqP4YswWcJoTzo-UMSODSbtsIvf9JttWmAVA4IONiObompk0zjZdWfnmz-ebFyaEO6xzFter1K6wchTnwCHFE9x8Dvatp3ay3L7WEh84sZ2VSg2';
 
-// Define the CORS options
-const corsOptions = {
-    credentials: true,
-    origin: ['http://localhost:3000', 'https://cloud.mensajes.payway.com.ar'] // Whitelist the domains you want to allow
-};
-
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.raw({ type: 'application/jwt' }));
-app.use(cors(corsOptions));
 
 app.post('/save', (req, res) => {
     console.log('Save route');
