@@ -7,7 +7,7 @@ const decodeJwt = require('./JwtDecoder');
 
 const apikey = 'e251cb9930b6f010cbb6122c5dd755a54409018125050dd8aa1b09737d99983f';
 const pushApiUrl = 'https://api.pushy.me/push?api_key=' + apikey;
-const secret = 'yo-pwyWMMkM77H_Ms-3UCJxNnybmGOeNFjdovkl6bodESDtjcZwhlAWes3yGd_JEnL1Wg7WJ0C3UhNjCixHUjbafTRlGpcUdu_zsUxAERafyjnU0UUGhSM5DXYdOggyIRoYZaBTeTtcdMWqChqP4YswWcJoTzo-UMSODSbtsIvf9JttWmAVA4IONiObompk0zjZdWfnmz-ebFyaEO6xzFter1K6wchTnwCHFE9x8Dvatp3ay3L7WEh84sZ2VSg2';
+const secret = 'SXIkZYjj9vayae8QOhvfL1cvzlJ1feAQTyiaNByPqnfCfufNTrwmtGH6thoIoP4hEbD-ObdKOI6npAwPTUFYCt6arOi0bBO8-ARmSGfLLS-6lw0TJtJnuIlEiqvzZ5sgYvF1QBy799nIvdTziIHWxZQat3rBoF3DcuQlVwlTf2qyOGL8SSIsRwd_JPIbvqnEhgwnCLkaqz43xLIxrPute0zVZllMITNej7NRu8joMTDENIlPI_5SEtU2MLcO9A2';
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.raw({ type: 'application/jwt' }));
